@@ -14,20 +14,34 @@ Thang Nguyen
 import { Request, Response } from "express";
 import {searchByBeerName} from '@src/api/config/axios-config';
 import log from '@src/api/utils/logger';
-import axios from 'axios';
-const beers: [] = [];
+import axios, { AxiosError } from 'axios';
+import {Beer} from '@src/api/models/beer.model';
+import {getBeerByName} from '@src/api/services/beer.service';
+
+// let beers: Beer[] = [];
 
 const beerControllers = {
 
     async searchByName(req: Request, res: Response) {
-        const beer_name:any = req.query.beer_name;      
-        log.info('Search name: ' + beer_name);  
-        const beerResponse = await axios.get(searchByBeerName(beer_name));
-        log.info('response: ' + beerResponse.data);
-        res.status(200).json({
-            status: 'success',
-            data: beerResponse.data
-        })
+        const beer_name:any = req.params.beer_name;      
+        log.info('Search name: ' + req.params.beer_name);  
+        try{
+            const beers = await getBeerByName(beer_name);                  
+            res.status(200).json({
+                status: 'success',
+                data: beers
+            })
+        }catch(err){
+            const errors = err as Error | AxiosError;
+            if(!axios.isAxiosError(errors)){
+                log.error(errors);
+            }
+            res.status(400).json({
+                status: 'failed',
+                message: 'Data unavailable',
+                error: errors
+            })
+        }
     },
     /**
      * 

@@ -3,5 +3,5 @@ export interface Beer {
     name: string;
     description: string;
     first_brewed: string;
-    foold_pairings: []
+    food_pairings: Array<string>
 }

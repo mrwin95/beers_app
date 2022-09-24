@@ -19,6 +19,16 @@ router.get('/api', (req: Request, res: Response) => {
     res.send('API online');
 });
 
-router.get('/', globalController.healthyCheck)
+/**
+ * @openapi
+ * /health-check:
+ *  get: 
+ *   description: Responds when the app is up and running
+ *   responses:
+ *      200:
+ *        description: App is up and running
+ */
+
+router.get('/health-check', globalController.healthyCheck)
 
 export default router;

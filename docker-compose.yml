@@ -1,0 +1,11 @@
+#docker run -d -p 6379:6379 --name redisdb
+version: "2.1"
+services:
+  redisdb:
+    container_name: redisdb
+    image: redis
+    ports:
+      - "6379:6379"
+    command: redis-server --save 20 1 --loglevel warning --requirepass interview12XZ
+    volumes:
+      - ./data/:/data

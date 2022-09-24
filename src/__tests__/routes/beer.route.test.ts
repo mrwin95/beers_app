@@ -10,9 +10,29 @@ Thang Nguyen
  * -----
  * Copyright (c) 2022 Your Company
  */
+import request from 'supertest';
+import app from '@src/api/app';
 
-describe('Beer routing test', () => {
-    it('The beer routing should be available', () => {
-        
-    });
+beforeAll(() => {
+
+})
+
+describe('Beers', () => {
+    describe('get beer route', () => {
+        describe('given the beer does not exist', () => {
+            it('should return a 404',  async () => {
+                const beer_name = '';
+                await request(app).get(`/api/v1/`).expect(404);
+                expect(true).toBe(true);
+            })
+        })
+
+        describe('given name of beer', () => {
+            it('should return a beer', async () => {
+                const beer_name = 'The End Of History';
+                await request(app).get(`/api/v1/beers/searchByName?beer_name=${beer_name}`)
+                .expect(200);
+            })
+        })
+    })
 })

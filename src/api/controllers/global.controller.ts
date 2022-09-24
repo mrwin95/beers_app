@@ -14,10 +14,7 @@ Thang Nguyen
 import { Request, Response } from "express"
 const globalControllers = {
     healthyCheck(req: Request, res: Response) {
-        res.status(200).json({
-            status: 'success',
-            message: 'API is running'
-        })
+        res.sendStatus(200);
     }
 }
 

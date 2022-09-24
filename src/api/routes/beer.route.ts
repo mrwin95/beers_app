@@ -13,11 +13,21 @@ Thang Nguyen
 
 import exprress from 'express';
 import BeerController from '@src/api/controllers/beer.controller';
-
+import { cacheBeerData } from '../middleware/beerCacheData';
 const router = exprress.Router();
 
 router.get('/beers', BeerController.getListOfBeers);
-router.get('/beers/searchByName', BeerController.searchByName);
+
+/**
+ * @openapi
+ * /beers:
+ *  get:
+ *    description: Responds when the app is up and running
+ *    responses:
+ *      '200':
+ *       description: App is up and running
+ */
+router.get('/beers/searchByName/:beer_name', BeerController.searchByName);
 
 export default router;
 
