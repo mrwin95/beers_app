@@ -1,9 +1,11 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
+  verbose: true,
   preset: 'ts-jest',
   testEnvironment: 'node',
-  coverageDirectory: 'converage',
+  coverageDirectory: 'coverage',
   collectCoverageFrom: ['src/**/*.{js,ts}'],
+  // moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
   coverageThreshold: {
     global: {
       branches: 0,
@@ -16,5 +18,10 @@ module.exports = {
   moduleNameMapper: {
     'src/(.*)': '<rootDir>/src/$1'
   },
-  moduleDirectories: ['node_modules', 'src'],
+  transform: {
+    '^.+\\.ts?$': 'ts-jest',
+  },
+  // roots: ["<rootDir>/src"],
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
+  moduleDirectories: ['node_modules', '<rootdir>/src'],
 };

@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>0/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>0/14</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -78,44 +78,56 @@
 <a name='L13'></a><a href='#L13'>13</a>
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
-<a name='L16'></a><a href='#L16'>16</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import express, { Application, Request, Response } from 'express';
-import dotenv from 'dotenv-safe';
-import routes from '@src/api/routes';
+<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import express, { Application} from 'express';</span>
+<span class="cstat-no" title="statement not covered" >import dotenv from 'dotenv-safe';</span>
+<span class="cstat-no" title="statement not covered" >import routes from '@src/api/routes';</span>
+<span class="cstat-no" title="statement not covered" >import cors from 'cors';</span>
+<span class="cstat-no" title="statement not covered" >import {validateHeader} from '@src/api/middleware/validateHeader';</span>
+<span class="cstat-no" title="statement not covered" >import {validateResource} from '@src/api/middleware/validateResource';</span>
 &nbsp;
-dotenv.config({
+<span class="cstat-no" title="statement not covered" >dotenv.config({</span>
     allowEmptyValues: true
 });
 &nbsp;
-const app: Application = express();
+let middleware = <span class="cstat-no" title="statement not covered" >[validateHeader, validateResource];</span>
+const app: Application = <span class="cstat-no" title="statement not covered" >express();</span>
 &nbsp;
-const port = process.env.PORT || 3001;
+const port = <span class="cstat-no" title="statement not covered" >process.env.PORT || 3001;</span>
+<span class="cstat-no" title="statement not covered" >app.use(cors());</span>
+<span class="cstat-no" title="statement not covered" >app.use(express.json());</span>
+<span class="cstat-no" title="statement not covered" >app.use('/api/v1/',middleware, routes);</span>
 &nbsp;
-app.use(express.json());
-app.use('/api/v1/',routes);
-&nbsp;
-export default app;</pre></td></tr></table></pre>
+<span class="cstat-no" title="statement not covered" >export default app;</span></pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-24T21:25:25.416Z
+                at 2022-09-25T19:05:45.878Z
             </div>
         <script src="../prettify.js"></script>
         <script>

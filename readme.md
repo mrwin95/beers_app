@@ -86,3 +86,5 @@ yarn add -D @types/swagger-jsdoc @types/swagger-ui-express
 15. add zod to use in validateResource
     yarn add zod
 16. add redis to do cache and nosql db
+
+fix issue with  SyntaxError: Cannot use import statement outside a module

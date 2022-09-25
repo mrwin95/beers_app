@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for api/routes/global.route.ts</title>
+    <title>Code coverage report for api/services/rating.service.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">api/routes</a> global.route.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">api/services</a> rating.service.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/28</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/18</span>
             </div>
         
             
@@ -92,77 +92,65 @@
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
- * Project: c:\Users\tnguyen\interviews\beers_app
- * Created Date: &lt;&lt;filecreated('dddd MMMM Do YYYY'
- * Author: Thang         
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { Rating } from "@src/api/models/rating.model";</span>
+<span class="cstat-no" title="statement not covered" >import log from '@src/api/utils/logger';</span>
 &nbsp;
-Thang Nguyen
- * -----
- * Last Modified:
- * Modified By:
- * -----
- * Copyright (c) 2022 Your Company
- */
+export const <span class="cstat-no" title="statement not covered" >saveRating = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync(r</span>ating: any) =&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span></span>
+<span class="cstat-no" title="statement not covered" >    log.info(`Inside saveRating method of the rating.service`);</span>
+<span class="cstat-no" title="statement not covered" >    try{</span>
+        const rt = <span class="cstat-no" title="statement not covered" >new Rating(rating);</span>
+<span class="cstat-no" title="statement not covered" >        await rt.save();</span>
+    }catch(err){
+<span class="cstat-no" title="statement not covered" >        log.error(err);</span>
+<span class="cstat-no" title="statement not covered" >        return null;</span>
+    }    
+}
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import express, {Request, Response} from 'express';</span>
-<span class="cstat-no" title="statement not covered" >import globalController from '@src/api/controllers/global.controller';</span>
+export const <span class="cstat-no" title="statement not covered" >getRatingById =<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync (i</span>d:string) =&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span></span>
+<span class="cstat-no" title="statement not covered" >    log.info('get Rating by id' + id);</span>
+    const result = <span class="cstat-no" title="statement not covered" >Rating.findById(id);</span>
+}
 &nbsp;
-const router = <span class="cstat-no" title="statement not covered" >express.Router();</span>
-<span class="cstat-no" title="statement not covered" >router.get('/api', <span class="fstat-no" title="function not covered" >(r</span>eq: Request, res: Response) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    res.send('API online');</span>
-});
+export const <span class="cstat-no" title="statement not covered" >updateRating =<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync (i</span>d: string, rating: any) =&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span></span>
+<span class="cstat-no" title="statement not covered" >    log.info('update rating by Id');</span>
+}
 &nbsp;
-/**
- * @openapi
- * /health-check:
- *  get: 
- *   description: Responds when the app is up and running
- *   responses:
- *      200:
- *        description: App is up and running
- */
+export const <span class="cstat-no" title="statement not covered" >deleteRating =<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync (i</span>d:string) =&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span></span>
+<span class="cstat-no" title="statement not covered" >    log.info('delete rating')</span>
+}
 &nbsp;
-<span class="cstat-no" title="statement not covered" >router.get('/health-check', globalController.healthyCheck)</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >export default router;</span></pre></td></tr></table></pre>
+export const <span class="cstat-no" title="statement not covered" >getRatings =<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync () =</span>&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span></span>
+<span class="cstat-no" title="statement not covered" >    log.info('get list of rating');</span>
+}</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.81% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/11</span>
+                <span class='fraction'>0/11</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.81% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/11</span>
+                <span class='fraction'>0/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -112,9 +112,7 @@
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -128,19 +126,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,7 +161,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">/*
+<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
  * Project: c:\Users\tnguyen\interviews\beers_app
  * Created Date: &lt;&lt;filecreated('dddd MMMM Do YYYY'
  * Author: Thang         
@@ -179,19 +175,17 @@ Thang Nguyen
  */
 &nbsp;
 import { Request, Response } from "express";
-import log from '@src/api/utils/logger';
-import {getBeerByName} from '@src/api/services/beer.service';
+<span class="cstat-no" title="statement not covered" >import log from '@src/api/utils/logger';</span>
+<span class="cstat-no" title="statement not covered" >import {getBeerByName} from '@src/api/services/beer.service';</span>
 &nbsp;
-// let beers: Beer[] = [];
+const beerControllers = <span class="cstat-no" title="statement not covered" >{</span>
 &nbsp;
-const beerControllers = {
-&nbsp;
-    async searchByName(req: Request, res: Response) {
-        const beer_name:any = req.params.beer_name;      
-        log.info('Search name: ' + req.params.beer_name);  
-        try{
-            const beers = await getBeerByName(beer_name);                  
-            res.status(200).json({
+    async <span class="fstat-no" title="function not covered" >searchByName(</span>req: Request, res: Response) {
+        const beer_name:any = <span class="cstat-no" title="statement not covered" >req.params.beer_name;      </span>
+<span class="cstat-no" title="statement not covered" >        log.info('Search name: ' + req.params.beer_name);  </span>
+<span class="cstat-no" title="statement not covered" >        try{</span>
+            const beers = <span class="cstat-no" title="statement not covered" >await getBeerByName(beer_name);                  </span>
+<span class="cstat-no" title="statement not covered" >            res.status(200).json({</span>
                 status: 'success',
                 data: beers
             })
@@ -216,14 +210,14 @@ const beerControllers = {
     }
 }
 &nbsp;
-export default beerControllers;</pre></td></tr></table></pre>
+<span class="cstat-no" title="statement not covered" >export default beerControllers;</span></pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-24T21:25:25.416Z
+                at 2022-09-25T19:05:45.878Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

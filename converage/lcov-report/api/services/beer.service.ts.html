@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">73.68% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/19</span>
+                <span class='fraction'>0/19</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">70.58% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/17</span>
+                <span class='fraction'>0/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,26 +99,23 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,9 +123,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -138,25 +135,23 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {BeerDTO} from '@src/api/dto/Beer.dto';
-import axios, { AxiosError } from 'axios';
-import {searchByBeerName} from '@src/api/config/axios-config';
-import log from '@src/api/utils/logger';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import axios, { AxiosError } from 'axios';</span>
+<span class="cstat-no" title="statement not covered" >import {searchByBeerName} from '@src/api/config/axios-config';</span>
+<span class="cstat-no" title="statement not covered" >import log from '@src/api/utils/logger';</span>
 import { Beer } from '../models/beer.model';
 &nbsp;
-let beers: Beer[] = [];
+let beers: Beer[] = <span class="cstat-no" title="statement not covered" >[];</span>
 &nbsp;
-export const getBeerByName = async (name:string) =&gt; {
-    log.info('inside getBeerByName method of the beer.service');
-    try{
-        const {data} = await axios.get&lt;Beer[]&gt;(searchByBeerName(name),{
+export const <span class="cstat-no" title="statement not covered" >getBeerByName = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync (n</span>ame:string) =&gt;<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > {</span></span></span>
+<span class="cstat-no" title="statement not covered" >    log.info('inside getBeerByName method of the beer.service');</span>
+<span class="cstat-no" title="statement not covered" >    try{</span>
+        const {data} = <span class="cstat-no" title="statement not covered" >await axios.get&lt;Beer[]&gt;(searchByBeerName(name),{</span>
             headers: {
               Accept: 'application/json',
             },
           });          
-          data.map((beer) =&gt; {
-            let b: Beer = {
+<span class="cstat-no" title="statement not covered" >          data.map(<span class="fstat-no" title="function not covered" >(b</span>eer) =&gt; {</span>
+            let b: Beer = <span class="cstat-no" title="statement not covered" >{</span>
               id: beer.id,
               name: beer.name,
               description: beer.description,
@@ -164,9 +159,9 @@ export const getBeerByName = async (name:string) =&gt; {
               food_pairings: beer.food_pairings
             }
 &nbsp;
-            beers.push(b);
+<span class="cstat-no" title="statement not covered" >            beers.push(b);</span>
           });      
-        return beers;
+<span class="cstat-no" title="statement not covered" >        return beers;</span>
     }catch(error){
 <span class="cstat-no" title="statement not covered" >        if (axios.isAxiosError(error)) {</span>
 <span class="cstat-no" title="statement not covered" >            console.log('error message: ', error.message);</span>
@@ -175,8 +170,7 @@ export const getBeerByName = async (name:string) =&gt; {
 <span class="cstat-no" title="statement not covered" >            console.log('unexpected error: ', error);</span>
 <span class="cstat-no" title="statement not covered" >            return 'An unexpected error occurred';</span>
           }
-    }
-    
+    }    
 }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -184,7 +178,7 @@ export const getBeerByName = async (name:string) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-24T21:25:25.416Z
+                at 2022-09-25T19:05:45.878Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for api/routes/global.route.ts</title>
+    <title>Code coverage report for api/utils/base-error.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">api/routes</a> global.route.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">api/utils</a> base-error.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -82,26 +82,7 @@
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -116,53 +97,30 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
- * Project: c:\Users\tnguyen\interviews\beers_app
- * Created Date: &lt;&lt;filecreated('dddd MMMM Do YYYY'
- * Author: Thang         
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { HttpStatusCode } from "./http-status";
 &nbsp;
-Thang Nguyen
- * -----
- * Last Modified:
- * Modified By:
- * -----
- * Copyright (c) 2022 Your Company
- */
+class BaseError extends Error {
+    public readonly name: string;
+    public readonly httpCode: HttpStatusCode;
+    public readonly isOperational: boolean;
+    
+<span class="fstat-no" title="function not covered" >    constructor(n</span>ame: string, httpCode: HttpStatusCode, description: string, isOperational: boolean) {
+<span class="cstat-no" title="statement not covered" >      super(description);</span>
+<span class="cstat-no" title="statement not covered" >      Object.setPrototypeOf(this, new.target.prototype);</span>
+    
+<span class="cstat-no" title="statement not covered" >      this.name = name;</span>
+<span class="cstat-no" title="statement not covered" >      this.httpCode = httpCode;</span>
+<span class="cstat-no" title="statement not covered" >      this.isOperational = isOperational;</span>
+    
+<span class="cstat-no" title="statement not covered" >      Error.captureStackTrace(this);</span>
+    }
+   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import express, {Request, Response} from 'express';</span>
-<span class="cstat-no" title="statement not covered" >import globalController from '@src/api/controllers/global.controller';</span>
-&nbsp;
-const router = <span class="cstat-no" title="statement not covered" >express.Router();</span>
-<span class="cstat-no" title="statement not covered" >router.get('/api', <span class="fstat-no" title="function not covered" >(r</span>eq: Request, res: Response) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    res.send('API online');</span>
-});
-&nbsp;
-/**
- * @openapi
- * /health-check:
- *  get: 
- *   description: Responds when the app is up and running
- *   responses:
- *      200:
- *        description: App is up and running
- */
-&nbsp;
-<span class="cstat-no" title="statement not covered" >router.get('/health-check', globalController.healthyCheck)</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >export default router;</span></pre></td></tr></table></pre>
+<span class="cstat-no" title="statement not covered" >   export default BaseError;</span></pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

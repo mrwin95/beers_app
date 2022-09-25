@@ -6,6 +6,7 @@ import { Beer } from '../models/beer.model';
 let beers: Beer[] = [];
 
 export const getBeerByName = async (name:string) => {
+  beers = [];
     log.info('inside getBeerByName method of the beer.service');
     try{
         const {data} = await axios.get<Beer[]>(searchByBeerName(name),{
@@ -13,13 +14,13 @@ export const getBeerByName = async (name:string) => {
               Accept: 'application/json',
             },
           });          
-          data.map((beer) => {
+          data.map((beer) => {            
             let b: Beer = {
               id: beer.id,
               name: beer.name,
               description: beer.description,
               first_brewed: beer.first_brewed,
-              food_pairings: beer.food_pairings
+              food_pairing: beer.food_pairing
             }
 
             beers.push(b);
@@ -33,6 +34,5 @@ export const getBeerByName = async (name:string) => {
             console.log('unexpected error: ', error);
             return 'An unexpected error occurred';
           }
-    }
-    
+    }    
 }

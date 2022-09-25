@@ -2,7 +2,8 @@ import express, { Application} from 'express';
 import dotenv from 'dotenv-safe';
 import routes from '@src/api/routes';
 import cors from 'cors';
-import {validateHeader} from '@src/api/middleware/ValidateHeader.middleware';
+import {validateHeader} from '@src/api/middleware/validateHeader';
+import {validateResource} from '@src/api/middleware/validateResource';
 
 dotenv.config({
     allowEmptyValues: true

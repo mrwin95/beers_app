@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for api/routes/global.route.ts</title>
+    <title>Code coverage report for api/middleware/validateHeader.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">api/routes</a> global.route.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">api/middleware</a> validateHeader.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -96,7 +96,16 @@
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -109,12 +118,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -127,42 +130,48 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
- * Project: c:\Users\tnguyen\interviews\beers_app
- * Created Date: &lt;&lt;filecreated('dddd MMMM Do YYYY'
- * Author: Thang         
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import express, {Request, Response, NextFunction} from 'express';
+import log from '@src/api/utils/logger';
+export const validateHeader = (req: Request, res: Response, next: NextFunction) =&gt;{
+    
+    if(!req.headers || !req.headers['x-user']){
+        res.statusCode = 403;
+        res.json({
+            error: 'Missing x-user from the header'
+        });
+    }
+    // const xUser = req.headers['x-user'];
+    // let valid = false;
+    // let msg = '';
+    // log.info(`In header of request: ${xUser}`);
+    // if(xUser == '' || xUser === undefined) {
+    //     valid = false;
+    //     msg = 'the header x-user was missing';
+    // }else {        
+    //     if(xUser.indexOf('@') === -1){
+    //         valid = false;
+    //         msg = `The ${xUser} is not an email`;            
+    //     }else {
+    //         valid = true;
+    //         next();
+    //     }        
+    // }
+    // if(!valid){
+    //     res.status(404).json({
+    //         status: 'failed',
+    //         message: msg
+    //     });
+    // }
 &nbsp;
-Thang Nguyen
- * -----
- * Last Modified:
- * Modified By:
- * -----
- * Copyright (c) 2022 Your Company
- */
+    // log.info('x-user:' + xUser + 'req: ' + req.url);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import express, {Request, Response} from 'express';</span>
-<span class="cstat-no" title="statement not covered" >import globalController from '@src/api/controllers/global.controller';</span>
-&nbsp;
-const router = <span class="cstat-no" title="statement not covered" >express.Router();</span>
-<span class="cstat-no" title="statement not covered" >router.get('/api', <span class="fstat-no" title="function not covered" >(r</span>eq: Request, res: Response) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    res.send('API online');</span>
-});
-&nbsp;
-/**
- * @openapi
- * /health-check:
- *  get: 
- *   description: Responds when the app is up and running
- *   responses:
- *      200:
- *        description: App is up and running
- */
-&nbsp;
-<span class="cstat-no" title="statement not covered" >router.get('/health-check', globalController.healthyCheck)</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >export default router;</span></pre></td></tr></table></pre>
+    next();
+}</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

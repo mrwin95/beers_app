@@ -4,14 +4,6 @@ import swaggerUi from 'swagger-ui-express';
 import {version} from '../../../package.json';
 import log from '@src/api/utils/logger';
 
-const swaggerDefinition: swaggerJSDoc.SwaggerDefinition = {
-    info: {
-        title: '',
-        version
-    },
-    host: ''
-};
-
 const options: swaggerJSDoc.Options = {
     definition: {
         openapi: "3.0.0",
