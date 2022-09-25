@@ -14,37 +14,35 @@ Thang Nguyen
 import { Request, Response } from "express";
 import log from '@src/api/utils/logger';
 import {getBeerByName} from '@src/api/services/beer.service';
-
+import validator from 'validator';
 const beerControllers = {
 
     async searchByName(req: Request, res: Response) {
-        const beer_name:any = req.params.beer_name;      
-        log.info('Search name: ' + req.params.beer_name);  
+        log.info('Inside searchByName method of beer.controller');
+        const beer_name:any = req.query.beer_name || "";      
+        log.info('Search name: ' + (req.query.beer_name || ""));          
         try{
-            const beers = await getBeerByName(beer_name);                  
-            res.status(200).json({
-                status: 'success',
-                data: beers
-            })
-        }catch(err){           
+            const beers:any = await getBeerByName(beer_name);   
+            if(!validator.isEmpty(beer_name)){
+                res.status(200).json({
+                    status: 'success',
+                    data: beers
+                })
+            }else {
+                res.status(400).json({
+                    status: 'failed',
+                    data: beers
+                })
+            }            
+        }catch(err: any){           
             res.status(400).json({
-                status: 'failed',
+                status: err.data,
                 message: 'Data unavailable',
                 error: err
             })
         }
     },
-    /**
-     * 
-     * @param req 
-     * @param res 
-     */
-    getListOfBeers(req: Request, res: Response){
-        res.status(200).json({
-            status: 'sucess',
-            message: 'load product'
-        })
-    }
+
 }
 
 export default beerControllers;

@@ -16,7 +16,7 @@ import BeerController from '@src/api/controllers/beer.controller';
 import { cacheBeerData } from '../middleware/beerCacheData';
 const router = express.Router();
 
-router.get('/beers', BeerController.getListOfBeers);
+// router.get('/beers', BeerController.getListOfBeers);
 
 /**
  * @openapi
@@ -27,7 +27,7 @@ router.get('/beers', BeerController.getListOfBeers);
  *      '200':
  *       description: App is up and running
  */
-router.get('/beers/searchByName/:beer_name',cacheBeerData, BeerController.searchByName);
+router.get('/beers/searchByName',cacheBeerData, BeerController.searchByName);
 
 export default router;
 

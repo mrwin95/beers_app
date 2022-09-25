@@ -13,7 +13,7 @@ export const getBeerByName = async (name:string) => {
             headers: {
               Accept: 'application/json',
             },
-          });          
+          });         
           data.map((beer) => {            
             let b: Beer = {
               id: beer.id,
@@ -21,15 +21,14 @@ export const getBeerByName = async (name:string) => {
               description: beer.description,
               first_brewed: beer.first_brewed,
               food_pairing: beer.food_pairing
-            }
-
+            }            
             beers.push(b);
-          });      
+          });
+          log.info("data: ")      
         return beers;
     }catch(error){
-        if (axios.isAxiosError(error)) {
-            console.log('error message: ', error.message);
-            return error.message;
+        if (axios.isAxiosError(error)) {                                    
+            return error.response?.data;
           } else {
             console.log('unexpected error: ', error);
             return 'An unexpected error occurred';
