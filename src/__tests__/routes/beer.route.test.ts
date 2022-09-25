@@ -30,7 +30,7 @@ describe('Beers', () => {
         describe('given name of beer', () => {
             it('should return a beer', async () => {
                 const beer_name = 'The End Of History';
-                await request(app).get(`/api/v1/beers/searchByName?beer_name=${beer_name}`)
+                await request(app).get(`/api/v1/beers/searchByName/${beer_name}`)
                 .expect(200);
             })
         })

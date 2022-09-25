@@ -9,3 +9,16 @@ services:
     command: redis-server --save 20 1 --loglevel warning --requirepass interview12XZ
     volumes:
       - ./data/:/data
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - "27017:27017"
+    volumes:
+      - data:/data/db
+
+volumes:
+  data:

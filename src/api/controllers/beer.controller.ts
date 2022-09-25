@@ -12,13 +12,8 @@ Thang Nguyen
  */
 
 import { Request, Response } from "express";
-import {searchByBeerName} from '@src/api/config/axios-config';
 import log from '@src/api/utils/logger';
-import axios, { AxiosError } from 'axios';
-import {Beer} from '@src/api/models/beer.model';
 import {getBeerByName} from '@src/api/services/beer.service';
-
-// let beers: Beer[] = [];
 
 const beerControllers = {
 
@@ -31,15 +26,11 @@ const beerControllers = {
                 status: 'success',
                 data: beers
             })
-        }catch(err){
-            const errors = err as Error | AxiosError;
-            if(!axios.isAxiosError(errors)){
-                log.error(errors);
-            }
+        }catch(err){           
             res.status(400).json({
                 status: 'failed',
                 message: 'Data unavailable',
-                error: errors
+                error: err
             })
         }
     },

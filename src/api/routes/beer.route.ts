@@ -11,10 +11,10 @@ Thang Nguyen
  * Copyright (c) 2022 Your Company
  */
 
-import exprress from 'express';
+import express from 'express';
 import BeerController from '@src/api/controllers/beer.controller';
 import { cacheBeerData } from '../middleware/beerCacheData';
-const router = exprress.Router();
+const router = express.Router();
 
 router.get('/beers', BeerController.getListOfBeers);
 
@@ -27,7 +27,7 @@ router.get('/beers', BeerController.getListOfBeers);
  *      '200':
  *       description: App is up and running
  */
-router.get('/beers/searchByName/:beer_name', BeerController.searchByName);
+router.get('/beers/searchByName/:beer_name',cacheBeerData, BeerController.searchByName);
 
 export default router;
 

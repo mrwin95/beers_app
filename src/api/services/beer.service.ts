@@ -1,4 +1,3 @@
-import {BeerDTO} from '@src/api/dto/Beer.dto';
 import axios, { AxiosError } from 'axios';
 import {searchByBeerName} from '@src/api/config/axios-config';
 import log from '@src/api/utils/logger';

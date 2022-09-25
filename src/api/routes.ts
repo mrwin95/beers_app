@@ -1,6 +1,6 @@
 import globalRoute from '@src/api/routes/global.route';
 import beerRoute from '@src/api/routes/beer.route';
-
-const routes = [globalRoute, beerRoute];
+import ratingRoute from '@src/api/routes/rating.route';
+const routes = [globalRoute, beerRoute, ratingRoute];
 
 export default routes;
