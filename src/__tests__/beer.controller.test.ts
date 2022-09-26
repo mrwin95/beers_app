@@ -1,5 +1,18 @@
-describe('Beer service test', () => {
-    it('should be true', () => {
-        expect(true).toBe(true);
-    })
+describe('Beer Controller', () => {
+
+    let mockRequest: Partial<Request>;
+    let mockResponse: Partial<Response>;
+
+    beforeAll(() => {
+        mockRequest = {};
+        mockResponse = {
+            json: jest.fn()
+        }
+    });
+
+    test('search with name', () => {
+        mockRequest = {
+            
+        }
+    });
 });

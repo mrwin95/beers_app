@@ -15,13 +15,20 @@ import { Request, Response } from "express";
 import log from '@src/api/utils/logger';
 import {getBeerByName} from '@src/api/services/beer.service';
 import validator from 'validator';
-const beerControllers = {
+import {redis} from '@src/api/utils/redis-server';
 
+const beerControllers = {
+    /**
+     * 
+     * @param req 
+     * @param res 
+     */
     async searchByName(req: Request, res: Response) {
         log.info('Inside searchByName method of beer.controller');
-        const beer_name:any = req.query.beer_name || "";      
+        const beer_name:any = req.query.beer_name || "";   
+           
         log.info('Search name: ' + (req.query.beer_name || ""));          
-        try{
+        try{                        
             const beers:any = await getBeerByName(beer_name);   
             if(!validator.isEmpty(beer_name)){
                 res.status(200).json({

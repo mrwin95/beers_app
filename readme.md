@@ -88,3 +88,5 @@ yarn add -D @types/swagger-jsdoc @types/swagger-ui-express
 16. add redis to do cache and nosql db
 
 fix issue with  SyntaxError: Cannot use import statement outside a module
+17. install ioredis for caching
+18. yarn add ioredis

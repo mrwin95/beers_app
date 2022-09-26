@@ -1,19 +1,21 @@
-import { model, Schema } from "mongoose";
-
-const RatingSchema: Schema = new Schema({
-    beerId: {
-        type: Number,
-        unique: true,
-        required: [true, 'Cannot be blank'],
-        index: true
-    },
+// import mongoose, { model, Schema } from "mongoose";
+const mongoose = require('mongoose');
+/**
+ * The schema to mapping rating with mongodb
+ */
+const RatingSchema = new mongoose.Schema({
+    beerId: String,
     rating: {
-        type: String,
-        required: [true, 'Cannot be blank'],
+        type: Number,
+        required: [true, 'A rating is required'],
+        min: [1, 'A minimum rating of "1" is required'],
+        max: [5, '"5" is the maximum rating']
     },
-    comments: {
-        type: String
-    }
+    comments: String
 });
 
-export const Rating = model("Rating", RatingSchema);
+// RatingSchema.pre('save', function(next:any) {
+//     // Math.round(this.rating);
+//     next();
+// })
+export default mongoose.model("Rating", RatingSchema);

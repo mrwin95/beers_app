@@ -12,6 +12,10 @@ Thang Nguyen
  */
 
 import { Request, Response } from "express"
+
+/**
+ * The method to do health of the api
+ */
 const globalControllers = {
     healthyCheck(req: Request, res: Response) {
         res.sendStatus(200);
