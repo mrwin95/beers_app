@@ -7,6 +7,7 @@ import ratingController from '@src/api/controllers/rating.controller';
  */
 router.post('/rating/:beerId', ratingController.addRating);
 router.get('/rating/:beerId', ratingController.getRatingByBeerId);
-// router.put('/rating/:beerId/:rating', ratingController.updateRating);
+router.get('/rating/:id', ratingController.getRatingById);
+router.put('/rating/:beerId', ratingController.updateRating);
 
 export default router;

@@ -10,9 +10,16 @@ export const saveRating = async(rating: any) => {
     log.info(`Inside saveRating method of the rating.service`);
     try{
         const rt = new Rating(rating);
-        await rt.save().then((result: any) => {
-            log.info('Inform: ' + result);
-        });
+        const existedRating = await getRatingByBeerId(rating.beerId);
+        log.info('exsting: ' + existedRating + "new" + rt);
+        if(existedRating){
+            await Rating.findOneAndUpdate({beerId: rating.beerId, rating: rt.rating, comments: rt.comments},{isNew: true});
+            // await updateRating(rating.beerId, rating);
+        }else {
+            await rt.save().then((result: any) => {
+                log.info('Inform: ' + result);
+            });
+        }        
     }catch(err){
         log.error(err);
         return null;
@@ -32,12 +39,25 @@ export const getRatingById =async (id: string) => {
 }
 
 /**
+ * The method get rating by beerId
+ * @param beerId 
+ * @returns the rating matched with beerId
+ */
+export const getRatingByBeerId = async (beerId: number) => {
+    log.info('Inside getRatingByBeerId method of rating.service');
+    const result = await Rating.find({"beerId": beerId});
+    return result;
+}
+
+/**
  * 
  * @param id 
  * @param rating 
  */
 export const updateRating =async (id: string, rating: any) => {
     log.info('update rating by Id');
+    let result = await Rating.findOneAndUpdate({beerId: id, rating: rating.rating, comments: rating.comments},{isNew: true});
+    return result;
 }
 
 /**
@@ -46,8 +66,4 @@ export const updateRating =async (id: string, rating: any) => {
  */
 export const deleteRating =async (id:string) => {
     log.info('delete rating')
-}
-
-export const getRatings =async () => {
-    log.info('get list of rating');
 }
