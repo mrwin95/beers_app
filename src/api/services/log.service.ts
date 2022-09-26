@@ -10,13 +10,12 @@ export const addLog = async(log: any) => {
     logger.info('Inside addLog method of log.service.ts');
     let result: any;
     try{
-        result = await new Log().save().then((log:any) => {
+        const lt = new Log(log);
+        await lt.save().then((log:any) => {
                 logger.info(log);
         });
     }catch(err){
         logger.error(err);
         return null;
     }
-
-    return result;
 };
